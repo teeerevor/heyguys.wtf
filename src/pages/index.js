@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Box, Text } from 'rebass';
+import { Flex, Box, Text } from 'rebass';
 import { shuffle } from 'lodash';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import Layout from '../components/layout';
 import logo from '../images/heyguys-white.svg';
@@ -43,15 +44,49 @@ const Block = styled(Box).attrs({
 
 const List = styled(Box).attrs({
     as: 'ul',
-    ml: 2,
 })`
-    list-style-type: circle;
+    list-style-type: none;
 `;
 
-const ListItem = styled(Box).attrs({
-    as: 'li',
-    pb: 2,
-})``;
+const CopyText = styled(Text).attrs({
+    mr: 2,
+    px: 2,
+    py: 1,
+    bg: '#fbab7e',
+    fontSize: '10px',
+    fontWeight: 600,
+    color: 'white',
+})`
+    border-radius: 20px;
+    position: absolute;
+    opacity: 0;
+    transition: all 0.2s ease-in 0.1s;
+    left: -60px;
+    top: 6px;
+`;
+
+const SuggestionText = styled(Text).attrs({})``;
+
+const Suggestion = styled(Flex).attrs({ alignItems: 'center' })`
+    position: relative;
+    transition: all 0.2s ease-in;
+    &:hover {
+        transform: translateX(48px);
+        cursor: pointer;
+        ${SuggestionText} {
+            background-image: linear-gradient(to right, #fbab7e 75%, transparent 75%);
+            background-position: 0 1.06em;
+            background-repeat: repeat-x;
+            background-size: 8px 2px;
+        }
+        ${CopyText} {
+            opacity: 1;
+            transform: translateX(10px);
+        }
+    }
+`;
+
+const ListItem = styled(Box).attrs({ as: 'li', pb: 2, pl: 2 })``;
 
 const IndexPage = () => (
     <Layout>
@@ -69,12 +104,17 @@ const IndexPage = () => (
             <List>
                 {shuffle(notGuys).map(item => (
                     <ListItem key={item}>
-                        <Text as="span" mr={3}>
-                            {item}
-                        </Text>
-                        <Text as="span" fontSize={4}>
-                            {emojis[item]}
-                        </Text>
+                        <Suggestion>
+                            <CopyToClipboard text={item}>
+                                <span>
+                                    <CopyText>COPY</CopyText>
+                                    <SuggestionText>{item}</SuggestionText>
+                                </span>
+                            </CopyToClipboard>
+                            <Text fontSize={4} ml={3}>
+                                {emojis[item]}
+                            </Text>
+                        </Suggestion>
                     </ListItem>
                 ))}
             </List>
