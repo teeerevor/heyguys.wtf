@@ -6,20 +6,9 @@ import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 const GlobalStyle = createGlobalStyle`
   body {
       margin: 0;
+      font-size: 20px;
+      font-family: 'Avenir Next',Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
   }
-`;
-// import Header from './header'
-// <Header siteTitle={data.site.siteMetadata.title} />
-
-const Flex = styled.div`
-    padding: 0;
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fbab7e;
-    background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
 `;
 
 const Layout = ({ children }) => (
@@ -37,7 +26,7 @@ const Layout = ({ children }) => (
             <ThemeProvider theme={{ fontFamily: 'Helvetica Neue' }}>
                 <>
                     <GlobalStyle />
-                    <Flex>{children}</Flex>
+                    {children}
                 </>
             </ThemeProvider>
         )}

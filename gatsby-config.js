@@ -27,6 +27,12 @@ module.exports = {
                 icon: `src/images/heyguyswtf-icon.png`, // This path is relative to the root of the site.
             },
         },
+        {
+            resolve: 'gatsby-plugin-segment',
+            options: {
+                writeKey: 'MFI7gpuMcZpODyAaIaxexpcgm6flF4pd',
+            },
+        },
         // this (optional) plugin enables Progressive Web App + Offline functionality
         // To learn more, visit: https://gatsby.app/offline
         // 'gatsby-plugin-offline',
