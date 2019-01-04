@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
 import { Box, Text } from 'rebass';
 import { shuffle } from 'lodash';
@@ -20,10 +19,8 @@ const Logo = styled.img`
     width: 60vw;
 `;
 
-const Header = styled.header`
-    padding: 0;
+const Header = styled(Box).attrs({ py: [5, 6] })`
     margin: 0;
-    height: 75vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,9 +29,10 @@ const Header = styled.header`
 `;
 
 const Main = styled(Box).attrs({
-    my: 6,
+    my: [5, 6],
     mx: [3, 'auto'],
     as: 'main',
+    fontSize: [2, 3],
 })`
     max-width: 600px;
 `;
@@ -64,8 +62,8 @@ const IndexPage = () => (
         </Header>
         <Main>
             <Block>
-                Seriously, spend 5 seconds to pick another go to term for a group of individuals and “Hey Guys” will
-                slowly disappear. You won't even miss it.
+                Seriously, spend 5 seconds to pick another go to term for a group of individuals and &ldquo;Hey
+                Guys&rdquo; will slowly disappear. You won&apos;t even miss it.
             </Block>
             <Block>Here is a handy list I prepared earlier.</Block>
             <List>

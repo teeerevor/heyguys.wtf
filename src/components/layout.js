@@ -1,15 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
-
-const GlobalStyle = createGlobalStyle`
-  body {
-      margin: 0;
-      font-size: 20px;
-      font-family: 'Avenir Next',Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
-  }
-`;
+import { ThemeProvider } from 'styled-components';
+import './layout.css';
 
 const Layout = ({ children }) => (
     <StaticQuery
@@ -23,11 +16,8 @@ const Layout = ({ children }) => (
             }
         `}
         render={data => (
-            <ThemeProvider theme={{ fontFamily: 'Helvetica Neue' }}>
-                <>
-                    <GlobalStyle />
-                    {children}
-                </>
+            <ThemeProvider theme={{ fontFamily: 'Avenir Next' }}>
+                <>{children}</>
             </ThemeProvider>
         )}
     />
