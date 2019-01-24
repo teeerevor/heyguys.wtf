@@ -5,29 +5,10 @@ import { shuffle } from 'lodash';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import Layout from '../components/layout';
-import logo from '../images/heyguys-white.svg';
+import Header from '../components/Header';
 import SEO from '../components/seo';
 
 import { notGuys, emojis } from '../data/lists';
-
-const HiddenH1 = styled.h1`
-    opacity: 0;
-    position: absolute;
-    left: -1000px;
-`;
-
-const Logo = styled.img`
-    width: 60vw;
-`;
-
-const Header = styled(Box).attrs({ py: [5, 6] })`
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fbab7e;
-    background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
-`;
 
 const Main = styled(Box).attrs({
     my: [5, 6],
@@ -91,10 +72,7 @@ const ListItem = styled(Box).attrs({ as: 'li', pb: 2, pl: 2 })``;
 const IndexPage = () => (
     <Layout>
         <SEO title="HeyGuys.wtf!" keywords={[`hey`, `guys`, `what`, `the`, `fuck`]} />
-        <Header>
-            <HiddenH1>Hey Guys WTF</HiddenH1>
-            <Logo src={logo} alt="Hey Guys WTF" />
-        </Header>
+        <Header />
         <Main>
             <Block>
                 Seriously, spend 5 seconds to pick another go to term for a group of individuals and &ldquo;Hey

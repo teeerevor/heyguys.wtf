@@ -1,42 +1,33 @@
-import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
+import { Box } from 'rebass';
+import logo from '../images/heyguys-white.svg';
 
-const Header = ({ siteTitle }) => (
-  <div
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </div>
-)
+const HiddenH1 = styled.h1`
+    opacity: 0;
+    position: absolute;
+    left: -1000px;
+`;
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
+const Logo = styled.img`
+    width: 60vw;
+`;
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
+const StyledHeader = styled(Box).attrs({ py: [5, 6] })`
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fbab7e;
+    background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
+    as: 'header';
+`;
 
-export default Header
+const Header = () => (
+    <StyledHeader>
+        <HiddenH1>Hey Guys WTF</HiddenH1>
+        <Logo src={logo} alt="Hey Guys WTF" />
+    </StyledHeader>
+);
+
+export default Header;
