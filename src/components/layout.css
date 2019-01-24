@@ -1,5 +1,7 @@
 body {
     margin: 0;
+    margin-bottom: 48px;
     font-size: 20px;
     font-family: 'Avenir Next', Calibri, Candara, Segoe, 'Segoe UI', Optima, Arial, sans-serif;
+    color: #464547;
 }

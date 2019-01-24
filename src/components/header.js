@@ -13,7 +13,7 @@ const Logo = styled.img`
     width: 60vw;
 `;
 
-const StyledHeader = styled(Box).attrs({ py: [5, 6] })`
+const StyledHeader = styled(Box).attrs({ py: [5, 6], as: 'header' })`
     margin: 0;
     display: flex;
     justify-content: center;

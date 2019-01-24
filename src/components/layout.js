@@ -1,26 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StaticQuery, graphql } from 'gatsby';
 import { ThemeProvider } from 'styled-components';
 import './layout.css';
+import theme from '../theme';
 
 const Layout = ({ children }) => (
-    <StaticQuery
-        query={graphql`
-            query SiteTitleQuery {
-                site {
-                    siteMetadata {
-                        title
-                    }
-                }
-            }
-        `}
-        render={data => (
-            <ThemeProvider theme={{ fontFamily: 'Avenir Next' }}>
-                <>{children}</>
-            </ThemeProvider>
-        )}
-    />
+    <ThemeProvider theme={theme}>
+        <>{children}</>
+    </ThemeProvider>
 );
 
 Layout.propTypes = {

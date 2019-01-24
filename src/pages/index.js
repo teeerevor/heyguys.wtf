@@ -6,6 +6,8 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import Layout from '../components/layout';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
+import { linkTextUnderline } from '../components/link';
 import SEO from '../components/seo';
 
 import { notGuys, emojis } from '../data/lists';
@@ -46,8 +48,7 @@ const CopyText = styled(Text).attrs({
     top: 6px;
 `;
 
-const SuggestionText = styled(Text).attrs({})``;
-
+const SuggestionText = styled(Text)``;
 const Suggestion = styled(Flex).attrs({ alignItems: 'center' })`
     position: relative;
     transition: all 0.2s ease-in;
@@ -55,10 +56,7 @@ const Suggestion = styled(Flex).attrs({ alignItems: 'center' })`
         transform: translateX(48px);
         cursor: pointer;
         ${SuggestionText} {
-            background-image: linear-gradient(to right, #fbab7e 75%, transparent 75%);
-            background-position: 0 1.06em;
-            background-repeat: repeat-x;
-            background-size: 8px 2px;
+            ${linkTextUnderline}
         }
         ${CopyText} {
             opacity: 1;
@@ -97,6 +95,7 @@ const IndexPage = () => (
                 ))}
             </List>
         </Main>
+        <Footer />
     </Layout>
 );
 // <Block>Maybe you need something more piratie.</Block>
