@@ -2,20 +2,31 @@ import React from 'react';
 import styled from 'styled-components';
 import { Flex, Box, Text } from 'rebass';
 import Link from './link';
-import github from '../images/github.svg';
-import mail from '../images/mail.svg';
+import Github from '../images/github';
+import Mail from '../images/mail';
 import theme from '../theme';
 
 const StyledFooter = styled(Box).attrs({ mx: 3, pt: 5, as: 'footer' })`
     border-top: 2px solid #efefef;
 `;
 
-const IconLink = styled(Link).attrs({ mx: 3, as: 'a', color: 'gravel' })`
-    display: flex;
+const IconMail = styled(Mail)`
+    position: absolute;
+    left: -28px;
+    top: 4px;
+`;
 
+const IconGithub = styled(Github)`
+    position: absolute;
+    left: -28px;
+    top: 2px;
+`;
+
+const IconLink = styled(Link).attrs({ mx: 4, as: 'a', color: 'gravel' })`
+    position: relative;
     &:hover {
-        img {
-            fill: ${theme.colors.hitPink};
+        ${IconMail}, ${IconGithub} {
+            color: ${theme.colors.hitPink};
         }
     }
 `;
@@ -24,12 +35,12 @@ const Footer = () => (
     <StyledFooter>
         <Flex justifyContent="center">
             <IconLink href="https://github.com/teeerevor/heyguys.wtf">
-                <img src={github} alt="Github icon" />
-                <Text ml={2}>Github</Text>
+                <IconGithub alt="Github icon" />
+                <Text>Contribute</Text>
             </IconLink>
             <IconLink href="mailto:hey[at]heyguys[dot]wtf">
-                <img src={mail} alt="email icon" />
-                <Text ml={2}>hey[at]heyguys[dot]wtf</Text>
+                <IconMail alt="Mail icon" />
+                <Text>hey[at]heyguys[dot]wtf</Text>
             </IconLink>
         </Flex>
     </StyledFooter>

@@ -9,10 +9,14 @@ export const linkTextUnderline = css`
     text-shadow: 2px 2px white, 2px -2px white, -2px 2px white, -2px -2px white;
 `;
 
-export default styled(Text)`
+const Link = styled(Text)`
     text-decoration: none;
+    cursor: pointer;
 
     &:hover {
         ${linkTextUnderline}
     }
 `;
+export default Link;
+
+export const BodyLink = styled(Link).attrs({ as: 'a', color: 'hitPink' })``;

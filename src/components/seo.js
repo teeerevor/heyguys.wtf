@@ -2,6 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
+import heyguysmeta from '../images/heyguysmeta.png';
+
+const detailsQuery = graphql`
+    query DefaultSEOQuery {
+        site {
+            siteMetadata {
+                title
+                description
+                author
+            }
+        }
+    }
+`;
 
 function SEO({ description, lang, meta, keywords, title }) {
     return (
@@ -15,7 +28,7 @@ function SEO({ description, lang, meta, keywords, title }) {
                             lang,
                         }}
                         title={title}
-                        titleTemplate={`%s`}
+                        titleTemplate="%s"
                         meta={[
                             {
                                 name: `description`,
@@ -32,6 +45,10 @@ function SEO({ description, lang, meta, keywords, title }) {
                             {
                                 property: `og:type`,
                                 content: `website`,
+                            },
+                            {
+                                property: `og:image`,
+                                content: 'https://dl.dropboxusercontent.com/s/iwndilhh1zkybq5/heyguysmeta.png',
                             },
                             {
                                 name: `twitter:card`,
@@ -81,15 +98,3 @@ SEO.propTypes = {
 };
 
 export default SEO;
-
-const detailsQuery = graphql`
-    query DefaultSEOQuery {
-        site {
-            siteMetadata {
-                title
-                description
-                author
-            }
-        }
-    }
-`;

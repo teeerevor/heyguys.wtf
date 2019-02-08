@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Flex, Box, Text } from 'rebass';
+import { Box, Text } from 'rebass';
 import { shuffle } from 'lodash';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import Layout from '../components/layout';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { linkTextUnderline } from '../components/link';
+import { BodyLink as Link } from '../components/link';
+import { Suggestion, SuggestionText, CopyText } from '../components/suggestion';
 import SEO from '../components/seo';
 
 import { notGuys, emojis } from '../data/lists';
@@ -31,40 +32,6 @@ const List = styled(Box).attrs({
     list-style-type: none;
 `;
 
-const CopyText = styled(Text).attrs({
-    mr: 2,
-    px: 2,
-    py: 1,
-    bg: '#fbab7e',
-    fontSize: '10px',
-    fontWeight: 600,
-    color: 'white',
-})`
-    border-radius: 20px;
-    position: absolute;
-    opacity: 0;
-    transition: all 0.2s ease-in 0.1s;
-    left: -60px;
-    top: 6px;
-`;
-
-const SuggestionText = styled(Text)``;
-const Suggestion = styled(Flex).attrs({ alignItems: 'center' })`
-    position: relative;
-    transition: all 0.2s ease-in;
-    &:hover {
-        transform: translateX(48px);
-        cursor: pointer;
-        ${SuggestionText} {
-            ${linkTextUnderline}
-        }
-        ${CopyText} {
-            opacity: 1;
-            transform: translateX(10px);
-        }
-    }
-`;
-
 const ListItem = styled(Box).attrs({ as: 'li', pb: 2, pl: 2 })``;
 
 const IndexPage = () => (
@@ -72,10 +39,29 @@ const IndexPage = () => (
         <SEO title="HeyGuys.wtf!" keywords={[`hey`, `guys`, `what`, `the`, `fuck`]} />
         <Header />
         <Main>
+            <Block>Yep sadly &ldquo;Hey Guys&rdquo; is still a thing.</Block>
             <Block>
-                Seriously, spend 5 seconds to pick another go to term for a group of individuals and &ldquo;Hey
-                Guys&rdquo; will slowly disappear. You won&apos;t even miss it.
+                People have been writing about how shite “Hey Guys” is
+                {' '}
+                <Link href="https://www.vox.com/2015/6/11/8761227/you-guys-sexism-language">for</Link>
+                {' '}
+                <Link href="https://mic.com/articles/115090/guys-can-we-stop-calling-everyone-guys-already#.f00XhU5So">
+                    a
+                </Link>
+                {' '}
+                <Link href="https://www.theguardian.com/media/mind-your-language/2016/jun/10/you-dont-like-being-called-guys-come-on-people">
+                    while
+                </Link>
+                {' '}
+                <Link href="https://www.theatlantic.com/family/archive/2018/08/guys-gender-neutral/568231/">now</Link>
+.
             </Block>
+            <Block>So lets change that!</Block>
+            <Block>
+                Spend 5 seconds to pick another go to term for a group of people and &ldquo;Hey Guys&rdquo; will slowly
+                disappear.
+            </Block>
+            <Block>You won&apos;t even miss it.</Block>
             <Block>Here is a handy list I prepared earlier.</Block>
             <List>
                 {shuffle(notGuys).map(item => (
